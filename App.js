@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { BannerView } from 'react-native-fbads';
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -39,6 +41,15 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
+            <View>
+              <BannerView
+                placementId="329602711327284_407893800164841"
+                type="rectangle"
+                onPress={() => console.log('click')}
+                onLoad={() => console.log('loaded')}
+                onError={err => console.log('----------------error', err)}
+              />
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>

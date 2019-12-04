@@ -4,11 +4,15 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import suraj.tiwari.reactnativefbads.FBAdsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import com.facebook.ads.AudienceNetworkAds; // <-- add this
+import suraj.tiwari.reactnativefbads.FBAdsPackage; // <-- add this
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -42,6 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    AudienceNetworkAds.initialize(this); // <-- add this
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
   }

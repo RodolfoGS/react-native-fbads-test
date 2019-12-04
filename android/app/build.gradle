@@ -2,6 +2,10 @@ apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
 
+repositories {
+    mavenCentral()
+}
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -179,8 +183,11 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-fbads')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:5.+'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
